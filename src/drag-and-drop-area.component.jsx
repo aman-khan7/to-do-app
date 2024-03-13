@@ -1,3 +1,4 @@
+import { Category } from "./category.component";
 import { Item } from "./item";
 
 export const DragAndDropArea = (props) => {
@@ -17,6 +18,13 @@ export const DragAndDropArea = (props) => {
           </ul>
         </div>
       </div>
+      <Category
+        bgColor="bg-red-500"
+        borderColor="border-red-950"
+        textBgColor="bg-red-700"
+        title="URGENT AND IMPORTANT"
+        id="1"
+      />
       <div className="  bg-orange-500 border border-orange-950 py-4 px-4 rounded-lg shadow-lg">
         <div className="flex flex-col gap-2">
           <strong className="text-white bg-orange-700 py-2 px-4 flex justify-center rounded-md">
