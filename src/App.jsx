@@ -36,7 +36,51 @@ function App() {
             }}
           />
         </div>
-        <DndContext>
+        <DndContext
+          onDragEnd={(o) => {
+            const { active, over } = o;
+            const itemId = active.id;
+            const currentContainterId = active.data.current.container;
+            const dropContainerId = over.id;
+            console.log({ itemId, currentContainterId, dropContainerId });
+
+            if (currentContainterId === "1") {
+              const newList = firstList.filter((a) => {
+                return a !== itemId;
+              });
+              setFirstList(newList);
+            } else if (currentContainterId === "2") {
+              const newList = secondList.filter((a) => {
+                return a !== itemId;
+              });
+              setSecondList(newList);
+            } else if (currentContainterId === "3") {
+              const newList = thirdList.filter((a) => {
+                return a !== itemId;
+              });
+              setThirdList(newList);
+            } else if (currentContainterId === "4") {
+              const newList = fourthList.filter((a) => {
+                return a !== itemId;
+              });
+              setFourthList(newList);
+            }
+            if (dropContainerId === "1") {
+              const newList = [...firstList, itemId];
+              setFirstList(newList);
+            } else if (dropContainerId === "2") {
+              const newList = [...secondList, itemId];
+
+              setSecondList(newList);
+            } else if (dropContainerId === "3") {
+              const newList = [...thirdList, itemId];
+              setThirdList(newList);
+            } else if (dropContainerId === "4") {
+              const newList = [...fourthList, itemId];
+              setFourthList(newList);
+            }
+          }}
+        >
           <DragAndDropArea
             firstList={firstList}
             secondList={secondList}

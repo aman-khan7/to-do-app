@@ -1,9 +1,12 @@
 import { useDraggable } from "@dnd-kit/core";
 
 export const Item = (props) => {
-  const { item } = props;
+  const { item, container } = props;
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: item,
+    data: {
+      container,
+    },
   });
   const style = transform
     ? {

@@ -22,11 +22,7 @@ export const Category = (props) => {
         >
           {title}
         </strong>
-        <ul className="flex flex-col gap-2">
-          {firstList.map((item) => {
-            return <Item item={item} key={item} />;
-          })}
-        </ul>
+        <ul className="flex flex-col gap-2">{props.children}</ul>
       </div>
     </div>
   );
